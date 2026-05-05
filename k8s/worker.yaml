@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: worker:local
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ORDERS_QUEUE
+              value: "orders"
+            - name: RABBITMQ_URL
+              value: "amqp://demo:demo@rabbitmq:5672/"
+            - name: WORKER_SLEEP_MS
+              value: "250"
+

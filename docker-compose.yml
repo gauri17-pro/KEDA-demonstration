@@ -1,0 +1,40 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: demo
+      RABBITMQ_DEFAULT_PASS: demo
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  catalog-service:
+    build:
+      context: ./catalog-service
+    environment:
+      PORT: "8001"
+    ports:
+      - "8001:8001"
+
+  order-service:
+    build:
+      context: ./order-service
+    environment:
+      PORT: "8002"
+      RABBITMQ_URL: "amqp://demo:demo@rabbitmq:5672/"
+      ORDERS_QUEUE: "orders"
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8002:8002"
+
+  worker:
+    build:
+      context: ./worker
+    environment:
+      RABBITMQ_URL: "amqp://demo:demo@rabbitmq:5672/"
+      ORDERS_QUEUE: "orders"
+      WORKER_SLEEP_MS: "250"
+    depends_on:
+      - rabbitmq
+
