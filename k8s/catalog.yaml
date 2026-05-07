@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: catalog-service
-          image: catalog-service:local
+          image: gauris17/catalog-service:v1
           imagePullPolicy: IfNotPresent
           env:
             - name: PORT
