@@ -5,6 +5,8 @@ metadata:
   namespace: keda-demo
 spec:
   scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
     name: worker
   minReplicaCount: 0
   maxReplicaCount: 20
