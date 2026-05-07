@@ -31,6 +31,7 @@ metadata:
   name: catalog-service
   namespace: keda-demo
 spec:
+  type: LoadBalancer
   selector:
     app: catalog-service
   ports:
