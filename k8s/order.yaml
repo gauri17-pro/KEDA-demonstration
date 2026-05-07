@@ -31,9 +31,11 @@ kind: Service
 metadata:
   name: order-service
 spec:
+  type: LoadBalancer
   selector:
     app: order-service
   ports:
     - port: 80
       targetPort: 8002
+      
 
