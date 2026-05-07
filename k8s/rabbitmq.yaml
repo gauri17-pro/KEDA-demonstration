@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: rabbitmq-auth
+  namespace: keda-demo
 type: Opaque
 stringData:
   username: demo
@@ -11,6 +12,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rabbitmq
+  namespace: keda-demo
 spec:
   replicas: 1
   selector:
@@ -45,6 +47,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rabbitmq
+  namespace: keda-demo
 spec:
   selector:
     app: rabbitmq
