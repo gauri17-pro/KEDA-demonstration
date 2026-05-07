@@ -12,6 +12,8 @@ spec:
       labels:
         app: order-service
     spec:
+      imagePullSecrets:
+        - docker-creds
       containers:
         - name: order-service
           image: gauris17/order-service:v1
