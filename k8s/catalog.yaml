@@ -13,7 +13,7 @@ spec:
         app: catalog-service
     spec:
       imagePullSecrets:
-        - docker-creds
+        - name: docker-creds
       containers:
         - name: catalog-service
           image: gauris17/catalog-service:v1
