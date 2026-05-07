@@ -75,9 +75,9 @@ For **minikube** (build directly inside minikube’s Docker):
 
 ```bash
 eval "$(minikube docker-env)"
-docker build -t catalog-service:local ./catalog-service
-docker build -t order-service:local ./order-service
-docker build -t worker:local ./worker
+docker build -t gauris17/catalog-service:v1 ./catalog-service
+docker build -t gauris17/order-service:v1 ./order-service
+docker build -t gauris17/worker:v1 ./worker
 ```
 
 ### Deploy the demo
