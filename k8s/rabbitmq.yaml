@@ -5,8 +5,7 @@ metadata:
   namespace: keda-demo
 type: Opaque
 stringData:
-  username: demo
-  password: demo
+  host: amqp://demo:demo@rabbitmq.keda-demo.svc.cluster.local:5672/%2F
 ---
 apiVersion: apps/v1
 kind: Deployment
