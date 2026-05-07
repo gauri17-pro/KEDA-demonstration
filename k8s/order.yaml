@@ -13,7 +13,7 @@ spec:
         app: order-service
     spec:
       imagePullSecrets:
-        - docker-creds
+        - name: docker-creds
       containers:
         - name: order-service
           image: gauris17/order-service:v1
