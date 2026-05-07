@@ -12,6 +12,8 @@ spec:
       labels:
         app: worker
     spec:
+      imagePullSecrets:
+        - name: docker-creds
       containers:
         - name: worker
           image: gauris17/worker:v1
