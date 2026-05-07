@@ -2,6 +2,7 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: worker-rabbitmq
+  namespace: keda-demo
 spec:
   scaleTargetRef:
     name: worker
