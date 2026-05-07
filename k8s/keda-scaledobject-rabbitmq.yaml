@@ -1,23 +1,40 @@
 apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: rabbitmq-trigger-auth
+  namespace: keda-demo
+spec:
+  secretTargetRef:
+    - parameter: host
+      name: rabbitmq-auth
+      key: host
+
+---
+apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: worker-rabbitmq
   namespace: keda-demo
+
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: worker
+
   minReplicaCount: 0
   maxReplicaCount: 20
+
   pollingInterval: 5
   cooldownPeriod: 30
+
   triggers:
     - type: rabbitmq
       metadata:
-        # rabbitmq service in the same namespace
-        host: amqp://demo:demo@rabbitmq:5672/
         queueName: orders
         mode: QueueLength
-        value: "50" # target: 1 replica per ~50 queued messages
+        value: "50"
+
+      authenticationRef:
+        name: rabbitmq-trigger-auth
 
