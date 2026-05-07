@@ -80,6 +80,15 @@ docker build -t gauris17/order-service:v1 ./order-service
 docker build -t gauris17/worker:v1 ./worker
 ```
 
+### Create a secret of type dockerconfig
+
+```
+kubectl create secret docker-registry docker-creds \
+  --docker-server=https://index.docker.io/v1/ \
+  --docker-username=gauris17 \
+  --docker-password='Gauri@123' 
+```
+
 ### Deploy the demo
 
 ```bash
