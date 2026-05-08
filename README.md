@@ -1,6 +1,6 @@
 ## KEDA ecommerce demo (microservices)
 
-This repo is a tiny ecommerce-style system built specifically to **demo KEDA autoscaling on YouTube**.
+This repo is a tiny ecommerce-style system built specifically to **demo KEDA autoscaling**.
 
 It contains **3 deployable components**:
 
@@ -122,7 +122,7 @@ kubectl -n keda-demo get pods -l app=worker -w
 
 ---
 
-## Notes for recording the YouTube demo
+## Notes
 
 - Show `kubectl get deploy worker -w` while you enqueue orders
 - Show queue growing (optional): port-forward RabbitMQ management UI:
