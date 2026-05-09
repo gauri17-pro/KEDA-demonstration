@@ -1,0 +1,19 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: demo-keda-scaledobject
+spec:
+  scaleTargetRef:
+    apiVersion:    apps/v1
+    kind:          Deployment
+    name:          hello-world-deploy
+  minReplicaCount: 0      
+  maxReplicaCount: 10     
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: http://prometheus-server.monitoring.svc.cluster.local:80/
+        query: sum(rate(hello_world_requests{service="hello-world-service"}[1m])) # Note: query must return a vector/scalar single element response
+        threshold: '50'
+        # Optional fields:
+        ignoreNullValues: "true"
