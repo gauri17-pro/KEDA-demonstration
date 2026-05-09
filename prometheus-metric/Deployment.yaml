@@ -27,7 +27,7 @@ metadata:
   name: hello-world-service 
   annotations:
     prometheus.io/path: "/metrics"
-    prometheus.io/port: "3000"
+    prometheus.io/port: "5000"
     prometheus.io/scrape: "true"
 spec:
   selector: 
@@ -35,5 +35,5 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP 
-      port: 80
+      port: 5000
       targetPort: 5000
