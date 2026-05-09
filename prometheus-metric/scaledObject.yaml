@@ -7,7 +7,7 @@ spec:
     apiVersion:    apps/v1
     kind:          Deployment
     name:          hello-world-deploy
-  minReplicaCount: 0      
+  minReplicaCount: 1      
   maxReplicaCount: 10     
   triggers:
     - type: prometheus
