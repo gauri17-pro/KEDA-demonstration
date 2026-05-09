@@ -16,7 +16,7 @@ spec:
         - name: docker-creds
       containers:
       - name: hello-world-container 
-        image: gauris17/hello-world:v1 
+        image: gauris17/hello-world:latest 
         ports:
           - containerPort: 5000
 
