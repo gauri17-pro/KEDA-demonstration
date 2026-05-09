@@ -13,7 +13,7 @@ spec:
     - type: prometheus
       metadata:
         serverAddress: http://prometheus-server.monitoring.svc.cluster.local:80/
-        query: sum(rate(hello_world_requests{service="hello-world-service"}[1m])) # Note: query must return a vector/scalar single element response
+        query: sum(rate(hello_world_requests_total{service="hello-world-service"}[1m])) # Note: query must return a vector/scalar single element response
         threshold: '50'
         # Optional fields:
         ignoreNullValues: "true"
