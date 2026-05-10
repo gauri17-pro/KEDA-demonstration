@@ -35,7 +35,7 @@ metadata:
   name: order-service
   namespace: keda-demo
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: order-service
   ports:
