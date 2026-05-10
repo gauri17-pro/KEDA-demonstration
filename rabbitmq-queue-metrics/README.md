@@ -86,7 +86,7 @@ docker build -t gauris17/worker:v1 ./worker
 kubectl create secret docker-registry docker-creds \
   --docker-server=https://index.docker.io/v1/ \
   --docker-username=gauris17 \
-  --docker-password='Gauri@123' 
+  --docker-password='Password@123' 
 ```
 
 ### Deploy the demo
